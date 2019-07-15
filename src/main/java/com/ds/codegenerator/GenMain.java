@@ -14,9 +14,9 @@ public class GenMain {
 
         codeGen.setAuthor("Jerry.Li");
         codeGen.setDiskPath("/Users/jerryli/IdeaProjects/codeGen/src/main/java/");
-        codeGen.setPackageName("com.mycode.merchant");
+        codeGen.setPackageName("com.meeruu.sg.mall.merchant.merchant");
 
-        codeGen.generate("", "merchant", "商家基础表", true, true, true);
+        codeGen.generate("", "merchant", "商家基础表", true, false, true, "meeruu/");
     }
 }
 

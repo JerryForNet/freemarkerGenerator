@@ -27,6 +27,10 @@ public class CodeGenerateUtils {
     private String diskPath;
     private static Configuration config = new Configuration();
 
+    // 自定义属性  start
+
+    // 自定义属性 end
+
 
     public CodeGenerateUtils() {
     }
@@ -70,7 +74,7 @@ public class CodeGenerateUtils {
         boolean haveController = true;
         String tableAnnotation = tableName;
         boolean isUseLombok = false;
-        return generate(prefix, tableName, tableAnnotation, isOverwrite, haveController, isUseLombok);
+        return generate(prefix, tableName, tableAnnotation, isOverwrite, haveController, isUseLombok, "");
     }
 
     /**
@@ -85,7 +89,7 @@ public class CodeGenerateUtils {
         boolean isOverwrite = false;
         boolean haveController = true;
         boolean isUseLombok = false;
-        return generate(prefix, tableName, tableAnnotation, isOverwrite, haveController, isUseLombok);
+        return generate(prefix, tableName, tableAnnotation, isOverwrite, haveController, isUseLombok, "");
     }
 
 
@@ -101,7 +105,7 @@ public class CodeGenerateUtils {
      * @return
      * @throws Exception
      */
-    public boolean generate(String prefix, String tableName, String tableAnnotation, boolean isOverwrite, boolean haveController, boolean isUseLombok) throws Exception {
+    public boolean generate(String prefix, String tableName, String tableAnnotation, boolean isOverwrite, boolean haveController, boolean isUseLombok, String templateType) throws Exception {
         ResultSet resultSet = null;
 
         try {
@@ -132,32 +136,32 @@ public class CodeGenerateUtils {
 
             if (haveController == true) {
                 //生成Controller层文件
-                generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "controller", "Controller.java", "Controller.ftl", columnClassList);
+                generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "controller", "Controller.java", templateType + "Controller.ftl", columnClassList);
             }
 
             //生成Mapper文件
-            generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "mapper", "Mapper.xml", "Mapper.ftl", columnClassList);
+            generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "mapper", "Mapper.xml", templateType + "MapperXML.ftl", columnClassList);
 
             //生成服务层接口文件
-            generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "service", "Service.java", "Service.ftl", columnClassList);
+            generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "service", "Service.java", templateType + "Service.ftl", columnClassList);
 
             //生成服务实现层文件
-            generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "service" + File.separator + "impl", "ServiceImpl.java", "ServiceImpl.ftl", columnClassList);
+            generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "service" + File.separator + "impl", "ServiceImpl.java", templateType + "ServiceImpl.ftl", columnClassList);
 
             //生成Dao文件
-            generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "dao", "Mapper.java", "dao.ftl", columnClassList);
+            generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "dao", "Mapper.java", templateType + "Mapper.ftl", columnClassList);
 
             //生成DTO文件
-            generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "dto", "DTO.java", "DTO.ftl", columnClassList);
+            generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "dto", "DTO.java", templateType + "DTO.ftl", columnClassList);
 
             //生成Model文件
-            generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "entity", "Entity.java", "Entity.ftl", columnClassList);
+            generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "entity", "Entity.java", templateType + "Entity.ftl", columnClassList);
 
             //生成Repository文件
-            generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "repository", "Repository.java", "Repository.ftl", columnClassList);
+            generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "repository", "Repository.java", templateType + "Repository.ftl", columnClassList);
 
             //生成Repository实现层
-            generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "repository" + File.separator + "impl", "RepositoryImpl.java", "RepositoryImpl.ftl", columnClassList);
+            generateFile(prefix, tableName, tableAnnotation, isUseLombok, isOverwrite, "repository" + File.separator + "impl", "RepositoryImpl.java", templateType + "RepositoryImpl.ftl", columnClassList);
 
             return true;
         } catch (Exception e) {
@@ -198,8 +202,7 @@ public class CodeGenerateUtils {
 
     private void generateFileByTemplate(String tableName, String tableAnnotation, boolean isUseLombok, String changeTableName,
                                         final String templateName, File file, Map<String, Object> dataMap) throws Exception {
-        Template template = config.getTemplate(templateName);
-        FileOutputStream fos = new FileOutputStream(file);
+
         dataMap.put("table_name_small", tableName);
         dataMap.put("table_name", changeTableName);
         dataMap.put("author", author);
@@ -207,12 +210,14 @@ public class CodeGenerateUtils {
         dataMap.put("package_name", packageName);
         dataMap.put("table_annotation", tableAnnotation);
         dataMap.put("is_use_lombok", isUseLombok);
-        Writer out = new BufferedWriter(new OutputStreamWriter(fos, "utf-8"), 10240);
 
+        Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "utf-8"), 10240);
+
+        Template template = config.getTemplate(templateName);
         template.process(dataMap, out);
     }
 
-    public String replaceUnderLineAndUpperCase(String str) {
+    private String replaceUnderLineAndUpperCase(String str) {
         StringBuffer sb = new StringBuffer();
         sb.append(str);
         int count = sb.indexOf("_");
