@@ -14,10 +14,9 @@ public enum BaseCodeEnum {
     RPC_INVALID_ACCESS_ROLE(10007, "无效的RPC接口访问角色", "系统处理失败，请重试"),
     RPC_METHOD_ACCESS_DENIED(10008, "RPC接口方法无访问权限", "系统处理失败，请重试");
 
-
-    private  int code;
-    private  String info;
-    private  String fixTips;
+    private int code;
+    private String info;
+    private String fixTips;
 
     private BaseCodeEnum(int code, String info, String fixTips) {
         this.code = code;

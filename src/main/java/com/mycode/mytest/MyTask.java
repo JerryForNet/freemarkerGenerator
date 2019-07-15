@@ -8,9 +8,9 @@ import java.util.concurrent.locks.ReentrantLock;
 @Data
 public class MyTask implements Runnable {
 
-    private  AtomicInteger atomicInteger;
+    private AtomicInteger atomicInteger;
 
-    private   volatile int num;
+    private volatile int num;
 
 
     /**
@@ -19,13 +19,15 @@ public class MyTask implements Runnable {
     private ReentrantLock reentrantLock;
 
     public final static Object lock = new Object();
-    public MyTask(Integer num){
-        this.num=num;
+
+    public MyTask(Integer num) {
+        this.num = num;
     }
 
-    public MyTask(AtomicInteger atomicInteger){
-        this.atomicInteger=atomicInteger;
+    public MyTask(AtomicInteger atomicInteger) {
+        this.atomicInteger = atomicInteger;
     }
+
     public void run() {
         /*while (num>0){
             synchronized(lock){
@@ -34,9 +36,9 @@ public class MyTask implements Runnable {
             }
         }*/
 
-        while(atomicInteger.intValue()>0){
-           synchronized(lock){
-                System.out.print(Thread.currentThread().getName()+"=="+atomicInteger.intValue()+"\n");
+        while (atomicInteger.intValue() > 0) {
+            synchronized (lock) {
+                System.out.print(Thread.currentThread().getName() + "==" + atomicInteger.intValue() + "\n");
                 atomicInteger.getAndDecrement();
             }
 
