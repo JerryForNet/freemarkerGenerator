@@ -15,21 +15,21 @@ public interface ${table_name}Mapper{
      *
      * @param entity
     */
-    int insert(${table_name}Entity entity) throws Exception;
+    int insert(${table_name}Entity entity);
 
     /**
      * 描述：单条保存非空字段
      *
      * @param entity
      */
-    int insertSelective(${table_name}Entity entity) throws Exception;
+    int insertSelective(${table_name}Entity entity);
 
     /**
      * 描述：批量保存数据
      *
      * @param entityList
      */
-    int insertBatch(List<${table_name}Entity> entityList) throws Exception;
+    int insertBatch(List<${table_name}Entity> entityList);
 
 
     /**
@@ -37,21 +37,21 @@ public interface ${table_name}Mapper{
      *
      * @param id
      */
-    int delete(Long id) throws Exception;
+    int delete(Integer id);
 
     /**
      * 描述：根据Id 逻辑删除数据
      *
      * @param id
      */
-    int deleteLogic(Long id) throws Exception;
+    int deleteLogic(Integer id);
 
     /**
      * 描述：批量删除方法
      *
      * @param entity
      */
-    int deleteBatch(${table_name}Entity entity) throws Exception;
+    int deleteBatch(${table_name}Entity entity);
 
 
     /**
@@ -59,14 +59,14 @@ public interface ${table_name}Mapper{
      *
      * @param entity
      */
-    int update(${table_name}Entity entity) throws Exception;
+    int update(${table_name}Entity entity);
 
     /**
      * 描述：更新非空字段数据
      *
      * @param entity
      */
-    int updateWithSelective(${table_name}Entity entity) throws Exception;
+    int updateWithSelective(${table_name}Entity entity);
 
 
     /**
@@ -74,14 +74,14 @@ public interface ${table_name}Mapper{
      *
      * @param id
      */
-    ${table_name}Entity findById(Long id)throws Exception;
+    ${table_name}Entity findById(Integer id)throws Exception;
 
     /**
      * 描述：根据Id获取数据行锁
      *
      * @param id
      */
-    ${table_name}Entity findByIdForUpdate(Long id)throws Exception;
+    ${table_name}Entity findByIdForUpdate(Integer id)throws Exception;
 
 
     /**
@@ -96,13 +96,13 @@ public interface ${table_name}Mapper{
      *
      * @param entity 查询条件
      */
-    List<${table_name}Entity> selectByParams(${table_name}Entity entity) throws Exception;
+    List<${table_name}Entity> selectByParams(${table_name}Entity entity);
 
    /**
     * 描述：列表总数查询
     *
     * @param entity 查询条件
     */
-   int countByParams(${table_name}Entity entity) throws Exception;
+   int countByParams(${table_name}Entity entity);
 
 }

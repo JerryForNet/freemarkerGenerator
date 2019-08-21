@@ -51,7 +51,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
 
     @Override
     @Transactional
-	public int save(${table_name}Entity entity) throws Exception{
+	public int save(${table_name}Entity entity){
         if(Objects.isNull(entity)){
             log.info("---->[${table_name}-Repository-save],请求参数-NULL ");
         }
@@ -60,7 +60,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
 
     @Override
     @Transactional
-    public int insertSelective(${table_name}Entity entity) throws Exception {
+    public int insertSelective(${table_name}Entity entity) {
         if(Objects.isNull(entity)){
             log.info("---->[${table_name}-Repository-insertSelective],请求参数-NULL ");
         }
@@ -69,7 +69,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
 
     @Override
     @Transactional
-    public int insertBatch(List<${table_name}Entity> entityList) throws Exception {
+    public int insertBatch(List<${table_name}Entity> entityList) {
         if(CollectionUtils.isEmpty(entityList)){
             log.info("---->[${table_name}-Repository-insertBatch],请求参数-NULL ");
         }
@@ -79,7 +79,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
 
     @Override
     @Transactional
-    public int delete(Long id) throws Exception{
+    public int delete(Integer id){
         if(Objects.isNull(id)){
              log.info("---->[${table_name}-Repository-delete],请求参数-NULL ");
          }
@@ -89,7 +89,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
 
     @Override
     @Transactional
-    public int deleteLogic(Long id) throws Exception{
+    public int deleteLogic(Integer id){
        if(Objects.isNull(id)){
            log.info("---->[${table_name}-Repository-deleteLogic],请求参数-NULL ");
         }
@@ -98,7 +98,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
 
     @Override
     @Transactional
-    public int deleteBatch(${table_name}Entity entity) throws Exception {
+    public int deleteBatch(${table_name}Entity entity) {
        if(Objects.isNull(entity)){
            log.info("---->[${table_name}-Repository-deleteBatch],请求参数-NULL ");
        }
@@ -107,7 +107,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
 
     @Override
     @Transactional
-    public int update(${table_name}Entity entity) throws Exception {
+    public int update(${table_name}Entity entity) {
         if(Objects.isNull(entity)){
             log.info("---->[${table_name}-Repository-update],请求参数-NULL ");
         }
@@ -116,7 +116,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
 
     @Override
     @Transactional
-    public int updateWithSelective(${table_name}Entity entity) throws Exception {
+    public int updateWithSelective(${table_name}Entity entity) {
        if(Objects.isNull(entity)){
            log.info("---->[${table_name}-Repository-updateWithSelective],请求参数-NULL ");
        }
@@ -124,7 +124,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     }
 
     @Override
-    public ${table_name}Entity findById(Long id) throws Exception {
+    public ${table_name}Entity findById(Integer id) {
        if(Objects.isNull(id)){
            log.info("---->[${table_name}-Repository-findById],请求参数-NULL ");
            return null;
@@ -133,7 +133,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     }
 
     @Override
-    public ${table_name}Entity findByIdForUpdate(Long id) throws Exception {
+    public ${table_name}Entity findByIdForUpdate(Integer id) {
        if(Objects.isNull(id)){
            log.info("---->[${table_name}-Repository-findByIdForUpdate],请求参数-NULL ");
            return null;
@@ -142,7 +142,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     }
 
     @Override
-    public ${table_name}Entity selectFirstByParams(${table_name}Entity entity) throws Exception {
+    public ${table_name}Entity selectFirstByParams(${table_name}Entity entity) {
         if(Objects.isNull(entity)){
             log.info("---->[${table_name}-Repository-selectFirstByParams],请求参数-NULL ");
             return null;
@@ -151,7 +151,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     }
 
     @Override
-    public int countByParams(${table_name}Entity entity) throws Exception {
+    public int countByParams(${table_name}Entity entity) {
         if(Objects.isNull(entity)){
             log.info("---->[${table_name}-Repository-countByParams],请求参数-NULL ");
             return 0;
@@ -160,7 +160,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     }
 
     @Override
-    public List<${table_name}Entity> selectByParams(${table_name}Entity entity) throws Exception {
+    public List<${table_name}Entity> selectByParams(${table_name}Entity entity) {
         if(Objects.isNull(entity)){
         log.info("---->[${table_name}-Repository-selectByParams],请求参数-NULL ");
         return null;
