@@ -53,7 +53,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     @Transactional
 	public int save(${table_name}Entity entity){
         if(Objects.isNull(entity)){
-            log.info("---->[${table_name}-Repository-save],请求参数-NULL ");
+            throw new ServiceException(MerchantCode.PARAM_ERROR, "请求参数-NULL");
         }
         return mapper.insert(entity);
     }
@@ -62,7 +62,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     @Transactional
     public int insertSelective(${table_name}Entity entity) {
         if(Objects.isNull(entity)){
-            log.info("---->[${table_name}-Repository-insertSelective],请求参数-NULL ");
+            throw new ServiceException(MerchantCode.PARAM_ERROR, "请求参数-NULL");
         }
         return mapper.insertSelective(entity);
     }
@@ -71,7 +71,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     @Transactional
     public int insertBatch(List<${table_name}Entity> entityList) {
         if(CollectionUtils.isEmpty(entityList)){
-            log.info("---->[${table_name}-Repository-insertBatch],请求参数-NULL ");
+            throw new ServiceException(MerchantCode.PARAM_ERROR, "请求参数-NULL");
         }
         return mapper.insertBatch(entityList);
     }
@@ -81,7 +81,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     @Transactional
     public int delete(Integer id){
         if(Objects.isNull(id)){
-             log.info("---->[${table_name}-Repository-delete],请求参数-NULL ");
+            throw new ServiceException(MerchantCode.PARAM_ERROR, "请求参数-NULL");
          }
          return mapper.delete(id);
     }
@@ -91,7 +91,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     @Transactional
     public int deleteLogic(Integer id){
        if(Objects.isNull(id)){
-           log.info("---->[${table_name}-Repository-deleteLogic],请求参数-NULL ");
+            throw new ServiceException(MerchantCode.PARAM_ERROR, "请求参数-NULL");
         }
         return mapper.deleteLogic(id);
     }
@@ -100,7 +100,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     @Transactional
     public int deleteBatch(${table_name}Entity entity) {
        if(Objects.isNull(entity)){
-           log.info("---->[${table_name}-Repository-deleteBatch],请求参数-NULL ");
+            throw new ServiceException(MerchantCode.PARAM_ERROR, "请求参数-NULL");
        }
        return mapper.deleteBatch(entity);
     }
@@ -109,7 +109,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     @Transactional
     public int update(${table_name}Entity entity) {
         if(Objects.isNull(entity)){
-            log.info("---->[${table_name}-Repository-update],请求参数-NULL ");
+            throw new ServiceException(MerchantCode.PARAM_ERROR, "请求参数-NULL");
         }
         return mapper.update(entity);
     }
@@ -118,7 +118,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     @Transactional
     public int updateWithSelective(${table_name}Entity entity) {
        if(Objects.isNull(entity)){
-           log.info("---->[${table_name}-Repository-updateWithSelective],请求参数-NULL ");
+            throw new ServiceException(MerchantCode.PARAM_ERROR, "请求参数-NULL");
        }
        return mapper.updateWithSelective(entity);
     }
@@ -126,8 +126,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     @Override
     public ${table_name}Entity findById(Integer id) {
        if(Objects.isNull(id)){
-           log.info("---->[${table_name}-Repository-findById],请求参数-NULL ");
-           return null;
+            throw new ServiceException(MerchantCode.PARAM_ERROR, "请求参数-NULL");
        }
        return mapper.findById(id);
     }
@@ -135,8 +134,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     @Override
     public ${table_name}Entity findByIdForUpdate(Integer id) {
        if(Objects.isNull(id)){
-           log.info("---->[${table_name}-Repository-findByIdForUpdate],请求参数-NULL ");
-           return null;
+            throw new ServiceException(MerchantCode.PARAM_ERROR, "请求参数-NULL");
        }
       return mapper.findByIdForUpdate(id);
     }
@@ -144,8 +142,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     @Override
     public ${table_name}Entity selectFirstByParams(${table_name}Entity entity) {
         if(Objects.isNull(entity)){
-            log.info("---->[${table_name}-Repository-selectFirstByParams],请求参数-NULL ");
-            return null;
+            throw new ServiceException(MerchantCode.PARAM_ERROR, "请求参数-NULL");
         }
         return mapper.selectFirstByParams(entity);
     }
@@ -153,8 +150,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     @Override
     public int countByParams(${table_name}Entity entity) {
         if(Objects.isNull(entity)){
-            log.info("---->[${table_name}-Repository-countByParams],请求参数-NULL ");
-            return 0;
+            throw new ServiceException(MerchantCode.PARAM_ERROR, "请求参数-NULL");
         }
         return mapper.countByParams(entity);
     }
@@ -162,8 +158,7 @@ public class ${table_name}RepositoryImpl implements ${table_name}Repository {
     @Override
     public List<${table_name}Entity> selectByParams(${table_name}Entity entity) {
         if(Objects.isNull(entity)){
-        log.info("---->[${table_name}-Repository-selectByParams],请求参数-NULL ");
-        return null;
+            throw new ServiceException(MerchantCode.PARAM_ERROR, "请求参数-NULL");
         }
         return mapper.selectByParams(entity);
         }
