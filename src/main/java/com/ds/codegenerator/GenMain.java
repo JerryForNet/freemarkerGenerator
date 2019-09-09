@@ -7,7 +7,7 @@ public class GenMain {
 
         CodeGenerateUtils codeGen = new CodeGenerateUtils();
 
-        codeGen.setJdbcUrl("jdbc:mysql://172.16.10.10:3306/sg_merchant?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull");
+        codeGen.setJdbcUrl("jdbc:mysql://172.16.10.10:3306/sg_product?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull");
         codeGen.setJdbcName("jure");
         codeGen.setJdbcPwd("Jure@123456");
         codeGen.setJdbcDriver("com.mysql.jdbc.Driver");

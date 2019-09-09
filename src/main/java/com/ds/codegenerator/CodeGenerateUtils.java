@@ -176,7 +176,9 @@ public class CodeGenerateUtils {
     }
 
 
-    private void generateFile(String prefix, String tableName, String tableAnnotation, boolean isUseLombok, boolean isOverwrite, String subPath, String suffix, String templateName, List<ColumnClass> columnClassList) throws Exception {
+    private void generateFile(String prefix, String tableName, String tableAnnotation, boolean isUseLombok
+            , boolean isOverwrite, String subPath, String suffix, String templateName
+            , List<ColumnClass> columnClassList) throws Exception {
         final String path = diskPath + packageName.replace(".", File.separator) + File.separator + subPath + File.separator;
         String tableNameWithoutPrefix = tableName;
         if (prefix != null) {
@@ -200,7 +202,7 @@ public class CodeGenerateUtils {
         generateFileByTemplate(tableName, tableAnnotation, isUseLombok, changeTableName, templateName, mapperFile, dataMap);
     }
 
-    private void generateFileByTemplate(String tableName, String tableAnnotation, boolean isUseLombok, String changeTableName,
+    public void generateFileByTemplate(String tableName, String tableAnnotation, boolean isUseLombok, String changeTableName,
                                         final String templateName, File file, Map<String, Object> dataMap) throws Exception {
 
         dataMap.put("table_name_small", tableName);

@@ -1,9 +1,14 @@
 package com.ds.codegenerator;
 
+import lombok.Builder;
 import lombok.Data;
+
 
 @Data
 public class ColumnClass {
+
+    public ColumnClass() {
+    }
 
     /**
      * 数据库字段名称
@@ -24,5 +29,12 @@ public class ColumnClass {
      * 数据库字段注释
      **/
     private String columnComment;
-    
+
+
+    public ColumnClass(String columnName, String columnType, String columnComment) {
+        this.columnName = columnName;
+        this.columnType = columnType;
+        this.columnComment = columnComment;
+        this.changeColumnName = columnName;
+    }
 }

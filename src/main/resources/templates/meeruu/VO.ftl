@@ -15,7 +15,7 @@ import lombok.Data;
 <#if is_use_lombok == true>
 @Data
 </#if>
-public class ${table_name}DTO {
+public class ${table_name}VO {
 
 <#assign dataType = "String">
 <#if model_column?exists>
