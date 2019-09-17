@@ -30,11 +30,17 @@ public class ColumnClass {
      **/
     private String columnComment;
 
-
     public ColumnClass(String columnName, String columnType, String columnComment) {
         this.columnName = columnName;
         this.columnType = columnType;
         this.columnComment = columnComment;
         this.changeColumnName = columnName;
+    }
+
+    public ColumnClass(String columnName, String columnType, String columnComment, String changeColumnName) {
+        this.columnName = columnName;
+        this.columnType = columnType;
+        this.columnComment = columnComment;
+        this.changeColumnName = changeColumnName;
     }
 }

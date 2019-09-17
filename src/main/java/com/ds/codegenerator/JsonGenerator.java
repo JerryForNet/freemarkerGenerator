@@ -41,6 +41,28 @@ public class JsonGenerator {
         columnClassList.add(new ColumnClass("sellPrice", "VARCHAR", "商品售价"));
         columnClassList.add(new ColumnClass("groupPrice", "VARCHAR", "商品拼店价"));
 
+
+        columnClassList.add(new ColumnClass("groupPrice", "VARCHAR", "小促价格"));
+        columnClassList.add(new ColumnClass("groupPrice", "VARCHAR", "大促价格"));
+
+
+        columnClassList.add(new ColumnClass("groupPrice", "VARCHAR", "销售毛利"));
+        columnClassList.add(new ColumnClass("groupPrice", "VARCHAR", "成本利润率"));
+        columnClassList.add(new ColumnClass("groupPrice", "VARCHAR", "自购奖励金"));
+        columnClassList.add(new ColumnClass("groupPrice", "VARCHAR", "推广奖励金"));
+        columnClassList.add(new ColumnClass("groupPrice", "VARCHAR", "写手奖励金"));
+        columnClassList.add(new ColumnClass("groupPrice", "VARCHAR", "运营推广金"));
+        columnClassList.add(new ColumnClass("groupPrice", "VARCHAR", "价格模板"));
+
+        columnClassList.add(new ColumnClass("groupPrice", "VARCHAR", "分润模板1"));
+        columnClassList.add(new ColumnClass("groupPrice", "VARCHAR", "分润模板2"));
+        columnClassList.add(new ColumnClass("groupPrice", "VARCHAR", "分润模板3"));
+
+
+
+
+
+
         dataMap.put("model_column", columnClassList);
 
 
