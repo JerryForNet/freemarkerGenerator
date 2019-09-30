@@ -58,9 +58,9 @@
             <#list model_column as model>
                 <#if model.columnName!="id">
                     <#if model.columnName=="is_test">
-                        ${r'#{'}${model.columnName},
+                        ${r'#{'}${model.columnName}${r'}'},
                     <#else>
-                        <if test="${model.changeColumnName?uncap_first} != null">${r'#{'}${model.changeColumnName?uncap_first},</if>
+                        <if test="${model.changeColumnName?uncap_first} != null">${r'#{'}${model.changeColumnName?uncap_first}${r'}'},</if>
                     </#if>
                 </#if>
             </#list>
