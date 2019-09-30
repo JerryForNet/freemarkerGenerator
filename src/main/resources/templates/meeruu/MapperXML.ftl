@@ -49,7 +49,7 @@
                     <#if model.columnName=="is_test">
                         ${model.columnName},
                     <#else>
-                        <if test="${model.columnName} != null">${model.columnName},</if>
+                        <if test="${model.changeColumnName?uncap_first} != null">${model.columnName},</if>
                     </#if>
                 </#if>
             </#list>
@@ -60,7 +60,7 @@
                     <#if model.columnName=="is_test">
                         ${r'#{'}${model.columnName},
                     <#else>
-                        <if test="${model.columnName} != null">${r'#{'}${model.columnName},</if>
+                        <if test="${model.changeColumnName?uncap_first} != null">${r'#{'}${model.changeColumnName?uncap_first},</if>
                     </#if>
                 </#if>
             </#list>
@@ -85,7 +85,7 @@
                     <trim prefix="(" suffix=")" suffixOverrides=",">
                         <#list model_column as model>
                             <#if model.columnName!="id">
-                                ${r'#{item.'}${model.columnName}${r'}'},
+                                ${r'#{item.'}${model.changeColumnName?uncap_first}${r'}'},
                             </#if>
                         </#list>
                     </trim>

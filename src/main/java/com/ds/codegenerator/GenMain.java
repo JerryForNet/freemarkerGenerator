@@ -14,9 +14,12 @@ public class GenMain {
 
         codeGen.setAuthor("Jerry.Li");
         codeGen.setDiskPath("/Users/jerryli/IdeaProjects/codeGen/src/main/java/");
-        codeGen.setPackageName("com.meeruu.sg.mall.merchant.merchant");
+        codeGen.setPackageName("com.meeruu.sg.mall.apply");
 
-        codeGen.generate("", "merchant_mng", "供应商申请入住表", true, false, true, "meeruu/");
+//        codeGen.generate("", "product_apply_audit", "商品申请审核记录", true, false, true, "meeruu/");
+        codeGen.generate("", "product_apply_audit", "商品申请详情及状态", true, false, true, "meeruu/");
+        codeGen.generate("", "product_apply_submit", "商品申请详情及状态", true, false, true, "meeruu/");
+
     }
 }
 
