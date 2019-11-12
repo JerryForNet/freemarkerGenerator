@@ -1,15 +1,16 @@
 package com.ds.codegenerator;
 
+import com.common.HSFGenerateUtils;
+import com.common.ColumnClass;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Stream;
 
 /**
  * @author jerryli
- * @description
+ * @description 通过 json 生成 dto 类
  * @date 2019-09-09 17:10
  */
 @Slf4j
@@ -72,7 +73,7 @@ public class JsonGenerator {
         dataMap.put("is_use_lombok", true);
 
 
-        CodeGenerateUtils codeGen = new CodeGenerateUtils();
+        HSFGenerateUtils codeGen = new HSFGenerateUtils();
         String filePath = "/Users/jerryli/mycode/ProductSkuSearchVO.java";
         File file = new File(filePath);
         if (file.exists()) {
